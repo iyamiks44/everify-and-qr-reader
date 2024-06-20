@@ -1,4 +1,38 @@
 <script>
+import QrReader from './QrReader.vue'
+export default {
+    name: 'EregisterButton',
+    components: {
+        QrReader,
+    },
+    data() {
+        return {
+            scanning: false,
+        };
+       
+    },
+    methods: {
+        showQrReader() {
+            this.scanning = true;
+            this.$refs.QrReader.scanning = true;
+        }
+    }    
+}
+
+</script>
+
+<template>
+    <button @click="showQrReader()">
+        Register with PhilSys ID
+    </button>
+    <QrReader ref="QrReader" :scanning="scanning" />
+
+</template>
+
+<style>
+</style>
+
+<!-- <script>
 export default {
     name: 'EregisterButton',
     methods: {
@@ -38,4 +72,4 @@ export default {
 </template>
 
 <style>
-</style>
+</style> -->
