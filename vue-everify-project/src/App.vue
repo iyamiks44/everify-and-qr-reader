@@ -13,9 +13,10 @@ export default {
 </script>
 
 <template>
-    <EregisterButton />
+    <img src="./assets/bpi-logo.svg"><br>
+    <EregisterButton /><br>
     <SignUpForm />
-
+    
 </template>
 
 <style scoped>
