@@ -16,6 +16,7 @@ export default {
         <input type="date">
         <input type="number" required placeholder="Mobile Number">
         <input type="email" required placeholder="Email Address">
+        <button>Register</button>
     </form>
 
 </template>
