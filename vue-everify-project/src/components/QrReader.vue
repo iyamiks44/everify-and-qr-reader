@@ -1,9 +1,10 @@
 <template>
-    <div>
+    <div v-show="scanning">
       <video ref="video" width="300" height="300" style="display: none;"></video>
       <canvas ref="canvas" width="300" height="300"></canvas>
       <div ref="result"></div>
     </div>
+    <p>{{ qrData }}</p>
   </template>
   
   <script>
@@ -12,7 +13,8 @@
     data() {
       return {
         stream: null,
-        scanning: false
+        scanning: false,
+        qrData: '',
       };
     },
     watch: {
@@ -45,6 +47,8 @@
         if (this.stream) {
           this.stream.getTracks().forEach(track => track.stop());
           this.stream = null;
+          this.scanning = false;
+          this.$emit('stopVideo', false)
         }
       },
       tick() {
@@ -67,6 +71,7 @@
   
           if (code) {
             this.$refs.result.textContent = code.data;
+            this.qrData = code.data;
             video.pause();
             this.stopVideo();
           }
