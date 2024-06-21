@@ -48,7 +48,6 @@
           this.stream.getTracks().forEach(track => track.stop());
           this.stream = null;
           this.scanning = false;
-          this.$emit('stopVideo', false)
         }
       },
       tick() {

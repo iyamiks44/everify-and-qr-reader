@@ -1,6 +1,5 @@
 <script>
-import SignUpForm from './components/SignUpForm.vue'
-// import EregisterButton from './components/EregisterButton.vue'
+import SignUpForm from './components/SignUpForm.vue';
 import QrReader from './components/QrReader.vue';
 
 
@@ -8,7 +7,6 @@ export default {
     name: 'App',
     components: {
         SignUpForm,
-        // EregisterButton,
         QrReader,
     },
     methods: {
