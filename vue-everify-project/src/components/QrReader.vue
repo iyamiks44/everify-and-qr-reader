@@ -8,6 +8,7 @@
   </template>
   
   <script>
+  import { store } from './store.js'
   export default {
     name: 'QrReader',
     data() {
@@ -71,6 +72,7 @@
           if (code) {
             this.$refs.result.textContent = code.data;
             this.qrData = code.data;
+            this.$emit('scanned', this.qrData);
             video.pause();
             this.stopVideo();
           }

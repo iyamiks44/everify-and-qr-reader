@@ -1,5 +1,11 @@
 <script>
 export default {
+    name: 'SignUpForm',
+    props: {
+        information: {
+            type: String,
+        }
+    },
     data() {
         return {
             firstName: '',
@@ -9,10 +15,35 @@ export default {
             cellNo: '',
             email: '',
         }
-    }
+    },
+    created() {
+    this.initializeData();
+  },
+  watch: {
+    information: {
+      handler: 'initializeData',
+      immediate: true,
+    },
+  },
+  methods: {
+    initializeData() {
+      try {
+        const info = JSON.parse(this.information);
+        this.firstName = info.firstName || '';
+        this.middleName = info.middleName || '';
+        this.lastName = info.lastName || '';
+        this.suffix = info.suffix || '';
+        this.cellNo = info.cellNo || '';
+        this.email = info.email || '';
+      } catch (error) {
+        console.error('Invalid JSON string in information prop:', error);
+      }
+    },
+  },
 }
 </script>
 <template>
+    <p>{{ information }}</p>
     <form>
         <input type="text" required placeholder="First Name" v-model="firstName">
         <input type="text" placeholder="Middle Name (optional)" v-model="middleName">

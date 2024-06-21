@@ -14,11 +14,14 @@ export default {
             this.scanning = true;
             this.$refs.QrReader.scanning = true;
         },
+        fillData(data) {
+            this.details = data
+        },
     },
     data() {
         return {
             scanning: false,
-            details: [],
+            details: '',
 
         }
     },
@@ -32,7 +35,8 @@ export default {
         Register with PhilSys ID
     </button><br>
     <div><QrReader ref="QrReader" :scanning="scanning" /></div><br>
-    <SignUpForm />
+    <div v-on:scanned="fillData($emit)"></div>
+    <SignUpForm :information="details"/>
     
 </template>
 
