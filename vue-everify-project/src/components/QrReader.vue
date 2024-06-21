@@ -8,7 +8,6 @@
   </template>
   
   <script>
-  import { store } from './store.js'
   export default {
     name: 'QrReader',
     data() {
