@@ -60,7 +60,7 @@
           context.drawImage(video, 0, 0, canvas.width, canvas.height);
   
           const imageData = context.getImageData(0, 0, canvas.width, canvas.height);
-          const code = jsqr(imageData.data, imageData.width, imageData.height, {
+          const code = jsQR(imageData.data, imageData.width, imageData.height, {
             inversionAttempts: 'dontInvert',
             narrowScanRegion: true,
           });
@@ -79,7 +79,7 @@
     },
     mounted() {
             const script = document.createElement('script');
-        script.src = 'https://rawgit.com/sitepoint-editors/jsqrcode/master/src/qr_packed.js';
+        script.src = 'https://cdn.jsdelivr.net/npm/jsqr@1.4.0/dist/jsQR.js';
         script.onload = () => {
         console.log('External script loaded.');
     };
