@@ -21,7 +21,7 @@ export default {
     data() {
         return {
             scanning: false,
-            details: '',
+            details: "",
 
         }
     },

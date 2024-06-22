@@ -71,8 +71,7 @@
           if (code) {
             this.$refs.result.textContent = code.data;
             this.qrData = code.data;
-            this.$emit('scanned', this.qrData);
-            video.pause();
+            this.$store.commit('load',this.qrData);
             this.stopVideo();
           }
         }
