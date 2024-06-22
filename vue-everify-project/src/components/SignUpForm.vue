@@ -1,49 +1,48 @@
 <script>
+import FaceLiveness from './FaceLiveness.vue';
+
 export default {
-    name: 'SignUpForm',
-    props: {
-        information: {
-            type: String,
-        }
-    },
-    data() {
-        return {
-            firstName: '',
-            middleName: '',
-            lastName: '',
-            suffix: '',
-            cellNo: '',
-            email: '',
-        }
-    },
-    created() {
-    this.initializeData();
+  name: 'SignUpForm',
+  props: {
+    information: String,
   },
-  watch: {
-    information: {
-      handler: 'initializeData',
-      immediate: true,
-    },
+  data() {
+    return {
+        firstName: '',
+        middleName: '',
+        lastName: '',
+        suffix: '',
+        cellNo: '',
+        email: '',
+        birthDate: '',
+        faceLiveness: '',
+    }
   },
   methods: {
-    initializeData() {
-      try {
-        const info = JSON.parse(this.information);
-        this.firstName = info.firstName || '';
-        this.middleName = info.middleName || '';
-        this.lastName = info.lastName || '';
-        this.suffix = info.suffix || '';
-        this.cellNo = info.cellNo || '';
-        this.email = info.email || '';
-      } catch (error) {
-        console.error('Invalid JSON string in information prop:', error);
-      }
-    },
+    fillIn() {
+        console.log('working')
+        console.log(this.$store.state.data)
+        const obj = JSON.parse(this.$store.state.data)
+        console.log(obj)
+        this.firstName = obj.first_name
+        this.middleName = obj.middle_name
+        this.lastName = obj.last_name
+        this.suffix = obj.suffix
+        this.birthDate = obj.birth_date
+        this.cellNo = obj.mobile_number
+        this.email = obj.email
+        this.faceLiveness = obj.faceLiveness
+        // console.log(this.information)
+        // const obj = JSON.parse(this.information);
+        // this.firstName = obj.firstName
+
+    }
   },
 }
 </script>
 <template>
     <p>{{ information }}</p>
+    <div><button @click="fillIn()">Fill In</button></div>
     <form>
         <input type="text" required placeholder="First Name" v-model="firstName">
         <input type="text" placeholder="Middle Name (optional)" v-model="middleName">
