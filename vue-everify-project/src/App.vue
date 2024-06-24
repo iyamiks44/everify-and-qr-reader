@@ -1,6 +1,8 @@
 <script>
 import SignUpForm from './components/SignUpForm.vue';
 import QrReader from './components/QrReader.vue';
+import { RouterView } from 'vue-router';
+import { storeKey } from 'vuex';
 
 
 export default {
@@ -14,14 +16,19 @@ export default {
             this.scanning = true;
             this.$refs.QrReader.scanning = true;
         },
-        fillData(data) {
-            this.details = data
-        },
+        // fillData(data) {
+        //     this.details = data
+        // },
+        // goToQrReader() {
+        //     console.log('goto')
+        //     this.$router.push('/qrreader')
+        // }
     },
     data() {
         return {
             scanning: false,
             details: "",
+            showForm: this.$store.state.showForm, 
 
         }
     },
@@ -30,13 +37,19 @@ export default {
 </script>
 
 <template>
+    <p>
+    <strong>Current route path:</strong> {{ $route.fullPath }}
+  </p>
     <img src="./assets/bpi-logo.svg"><br>
-    <button @click="showQrReader()">
+    <div v-show="!scanning"><button @click="showQrReader()">
         Register with PhilSys ID
-    </button><br>
+    </button></div>
+    <div v-show="!scanning"><button @click="goToQrReader()">Qr Reader</button></div>
+    
     <div><QrReader ref="QrReader" :scanning="scanning" /></div><br>
-    <div v-on:scanned="fillData($emit)"></div>
-    <SignUpForm :information="details"/>
+    <!-- <div v-on:scanned="fillData($emit)"></div> -->
+    <div v-show="!scanning"><SignUpForm :information="details"/></div>
+    <!-- <RouterView></RouterView> -->
     
 </template>
 
