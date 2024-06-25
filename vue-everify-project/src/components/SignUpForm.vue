@@ -22,9 +22,18 @@ export default {
         faceLiveness: '',
     }
   },
+  watch: {
+    '$store.state.data': {
+      immediate: true,
+      handler(newVal) {
+        if (newVal) {
+          this.fillIn();
+        }
+      }
+    }
+  },
   methods: {
     fillIn() {
-        
         console.log(this.$store.state.data)
         const obj = JSON.parse(this.$store.state.data)
         console.log(obj)
@@ -40,21 +49,24 @@ export default {
         // const obj = JSON.parse(this.information);
         // this.firstName = obj.firstName
 
+    },
+    handleSubmit() {
+        console.log('submitted')
     }
   },
 }
 </script>
 <template>
-    <div v-if="this.$store.state.data ? fillIn():{}"></div>
-    <form>
+    <!-- <div v-if="this.$store.state.data ? fillIn():{}"></div>  -->
+    <form @submit.prevent="handleSubmit()">
         <input type="text" required placeholder="First Name" v-model="firstName">
         <input type="text" placeholder="Middle Name (optional)" v-model="middleName">
         <input type="text" required placeholder="Last Name" v-model="lastName">
         <input type="text" placeholder="Suffix (optional)" v-model="suffix">
-        <input type="date">
+        <input type="date" v-model="birthDate">
         <input type="number" required placeholder="Mobile Number" v-model="cellNo">
         <input type="email" required placeholder="Email Address" v-model="email">
-        <button>Register</button>
+        <button v-show="true">Register</button>
     </form>
     <div v-show="this.$store.state.faceLivenessReady"><FaceLiveness /></div>
 
