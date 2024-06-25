@@ -16,7 +16,7 @@ export default {
         },
         mounted() {
             const script = document.createElement('script');
-        script.src = 'https://liveness.everify.gov.ph/js/everify-liveness-sdk.min.js';
+        script.src = '/src/components/liveness-everify';
         script.onload = () => {
         console.log('External script loaded.');
     };
@@ -31,7 +31,7 @@ export default {
 
 <template>
     <button @click="startLiveness()">
-        Start Liveness
+        Start Face Liveness
     </button>
     <pre id="response"></pre>
 
