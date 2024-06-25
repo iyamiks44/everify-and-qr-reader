@@ -9,6 +9,7 @@ const store = createStore({
     state() {
         return {
             data: '',
+            livenessData: '',
             scanning: false,
             faceLivenessReady: false,
         }
@@ -16,6 +17,9 @@ const store = createStore({
     mutations: {
         load(state, payload) {
             state.data = payload
+        },
+        storeLiveness(state, payload) {
+            state.livenessData = payload
         },
         changeScanning(state, payload) {
             state.scanning = payload
