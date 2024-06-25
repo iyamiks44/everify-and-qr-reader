@@ -2,10 +2,10 @@
     <div v-show="scanning">
       <button @click="stopVideo">Stop Scanning</button><br>
       <video ref="video" width="300" height="300" style="display: none;"></video>
-      <canvas ref="canvas" width="300" height="300"></canvas>
-      <div ref="result"></div>
+      <canvas ref="canvas" width="300" height="300"></canvas><br>
+      Please Scan the QR code on your PhilSys ID
+      <!-- <div ref="result">what the sigma</div> -->
     </div>
-    <!-- <p>{{ qrData }}</p> -->
   </template>
   
   <script>
@@ -33,7 +33,6 @@
         const video = this.$refs.video;
         const canvas = this.$refs.canvas;
         const context = canvas.getContext('2d');
-        const result = this.$refs.result;
   
         navigator.mediaDevices.getUserMedia({ video: { facingMode: 'environment' } })
           .then(stream => {
@@ -72,7 +71,6 @@
           });
   
           if (code) {
-            this.$refs.result.textContent = code.data;
             this.qrData = code.data;
             this.$store.commit('load',this.qrData);
             this.$store.commit('changeFaceLivenessReady', true)
