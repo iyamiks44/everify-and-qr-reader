@@ -3,6 +3,10 @@ import FaceLiveness from './FaceLiveness.vue';
 
 export default {
   name: 'SignUpForm',
+  components: {
+    FaceLiveness
+
+  },
   props: {
     information: String,
   },
@@ -20,18 +24,18 @@ export default {
   },
   methods: {
     fillIn() {
-        console.log('working')
+        
         console.log(this.$store.state.data)
         const obj = JSON.parse(this.$store.state.data)
         console.log(obj)
-        this.firstName = obj.first_name
-        this.middleName = obj.middle_name
-        this.lastName = obj.last_name
-        this.suffix = obj.suffix
-        this.birthDate = obj.birth_date
-        this.cellNo = obj.mobile_number
-        this.email = obj.email
-        this.faceLiveness = obj.faceLiveness
+        this.firstName = obj.subject.fName
+        this.middleName = obj.subject.mName
+        this.lastName = obj.subject.lName
+        this.suffix = obj.subject.Suffix
+        this.birthDate = obj.subject.DOB
+        // this.cellNo = obj.mobile_number
+        // this.email = obj.email
+        // this.faceLiveness = obj.faceLiveness
         // console.log(this.information)
         // const obj = JSON.parse(this.information);
         // this.firstName = obj.firstName
@@ -41,8 +45,8 @@ export default {
 }
 </script>
 <template>
-    <p>{{ information }}</p>
-    <div><button @click="fillIn()">Fill In</button></div>
+    <!-- <p>{{ information }}</p> -->
+    <div v-if="this.$store.state.data ? fillIn():{}"></div>
     <form>
         <input type="text" required placeholder="First Name" v-model="firstName">
         <input type="text" placeholder="Middle Name (optional)" v-model="middleName">
@@ -53,6 +57,7 @@ export default {
         <input type="email" required placeholder="Email Address" v-model="email">
         <button>Register</button>
     </form>
+    <div v-show="this.$store.state.faceLivenessReady"><FaceLiveness /></div>
 
 </template>
 <style>
