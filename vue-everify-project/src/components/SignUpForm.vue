@@ -1,6 +1,7 @@
 <script>
 import FaceLiveness from './FaceLiveness.vue';
 
+
 export default {
   name: 'SignUpForm',
   props: {
@@ -44,18 +45,40 @@ export default {
     <p>{{ information }}</p>
     <div><button @click="fillIn()">Fill In</button></div>
     <form>
-        <input type="text" required placeholder="First Name" v-model="firstName">
-        <input type="text" placeholder="Middle Name (optional)" v-model="middleName">
-        <input type="text" required placeholder="Last Name" v-model="lastName">
-        <input type="text" placeholder="Suffix (optional)" v-model="suffix">
-        <input type="date">
-        <input type="number" required placeholder="Mobile Number" v-model="cellNo">
-        <input type="email" required placeholder="Email Address" v-model="email">
-        <button>Register</button>
+        <div class="input">
+          <input class="fName" type="text" required placeholder="First Name" v-model="firstName">
+          <input class="mName" type="text" placeholder="Middle Name (optional)" v-model="middleName">
+          <input class="lName" type="text" required placeholder="Last Name" v-model="lastName">
+          <input class="suffix" type="text" placeholder="Suffix (optional)" v-model="suffix">
+          <input class="birthday" type="date">
+          <input class="mNumber" type="number" required placeholder="Mobile Number" v-model="cellNo">
+          <input class="email" type="email" required placeholder="Email Address" v-model="email">
+        </div>
+        <button type="submit">Register</button>
     </form>
 
 </template>
-<style>
+<style scoped>
+form {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: 2fr 2fr 2fr 2fr;
+  grid-template-areas: 
+    ". field field field .";
 
+}
+
+.input {
+  grid-area: field;
+}
+
+input{
+  padding: 7px;
+  margin: 7px;
+}
+
+button {
+  width: fit-content;
+}
 
 </style>
