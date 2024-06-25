@@ -45,7 +45,6 @@ export default {
 }
 </script>
 <template>
-    <!-- <p>{{ information }}</p> -->
     <div v-if="this.$store.state.data ? fillIn():{}"></div>
     <form>
         <input type="text" required placeholder="First Name" v-model="firstName">
