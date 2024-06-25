@@ -1,12 +1,27 @@
 <template>
     <div v-show="scanning">
+      <button @click="stopVideo">Stop Scanning</button><br>
       <video ref="video" width="300" height="300" style="display: none;"></video>
       <canvas ref="canvas" width="300" height="300"></canvas>
       <div ref="result"></div>
     </div>
-    <p>{{ qrData }}</p>
+    <!-- <p>{{ qrData }}</p> -->
   </template>
-  
+  <!-- <script setup>
+  import { computed } from 'vue'
+  import { useRoute, useRouter } from 'vue-router'
+    const router = useRouter()
+    const route = useRoute()
+
+  const search = computed({
+    get() {
+      return route.query.search ?? ''
+    },
+    set(search) {
+      router.replace({ query: {search}})
+    }
+  })
+</script> -->
   <script>
   export default {
     name: 'QrReader',
@@ -48,6 +63,8 @@
           this.stream.getTracks().forEach(track => track.stop());
           this.stream = null;
           this.scanning = false;
+          this.$store.commit('changeScanning', false)
+          this.$store.commit('changeFaceLivenessReady', true)
         }
       },
       tick() {
