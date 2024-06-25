@@ -20,7 +20,8 @@ export default {
         return {
             // scanning: false,
             details: "",
-            scanning: this.$store.state.scanning 
+            scanning: this.$store.state.scanning ,
+            livenessID: this.$store.state.livenessData,
 
         }
     },
@@ -34,7 +35,8 @@ export default {
         Register with PhilSys ID
     </button></div>
     <div><QrReader ref="QrReader" :scanning="scanning" /></div><br>
-    <div v-show="!this.$store.state.scanning"><SignUpForm :information="details"/></div>    
+    <div v-show="!this.$store.state.scanning"><SignUpForm :information="details"/></div>  
+    <div>{{ livenessID }}</div>  
 </template>
 
 <style scoped>
