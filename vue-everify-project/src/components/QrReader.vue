@@ -64,7 +64,7 @@
           this.stream = null;
           this.scanning = false;
           this.$store.commit('changeScanning', false)
-          this.$store.commit('changeFaceLivenessReady', true)
+          
         }
       },
       tick() {
@@ -89,6 +89,7 @@
             this.$refs.result.textContent = code.data;
             this.qrData = code.data;
             this.$store.commit('load',this.qrData);
+            this.$store.commit('changeFaceLivenessReady', true)
             this.stopVideo();
           }
         }
