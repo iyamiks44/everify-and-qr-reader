@@ -31,7 +31,7 @@ export default {
 
 <template>
     <button @click="startLiveness()">
-        Register with PhilSys ID
+        Start Liveness
     </button>
     <pre id="response"></pre>
 
