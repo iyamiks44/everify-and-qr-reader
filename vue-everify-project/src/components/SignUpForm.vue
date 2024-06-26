@@ -1,6 +1,7 @@
 <script>
 import FaceLiveness from './FaceLiveness.vue';
 
+
 export default {
   name: 'SignUpForm',
   components: {
@@ -71,7 +72,27 @@ export default {
     <div v-show="this.$store.state.faceLivenessReady"><FaceLiveness /></div>
 
 </template>
-<style>
+<style scoped>
+form {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: 2fr 2fr 2fr 2fr;
+  grid-template-areas: 
+    ". field field field .";
 
+}
+
+.input {
+  grid-area: field;
+}
+
+input{
+  padding: 7px;
+  margin: 7px;
+}
+
+button {
+  width: fit-content;
+}
 
 </style>
