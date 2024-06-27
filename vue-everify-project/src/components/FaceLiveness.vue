@@ -39,16 +39,24 @@ export default {
 </script>
 
 <template>
+  <h3><b> Please start Face Liveness to continue:</b></h3>
     <button @click="startLiveness()">
         Start Face Liveness
     </button>
-    <div v-if="status">
-      <p id="copyID">Session ID: {{ sessionID }}</p>
-      <p id="copyURL">Photo URL: <a :href="photoURL" target="_blank"> {{ photoURL }} </a></p>
-      
-  </div>
+    <div v-if="status" id="livenessDetails">
+      <p id="copyID"> <h2>Session ID: </h2> {{ sessionID }}</p>
+      <p id="copyURL"><h2> Photo URL: </h2><a :href="photoURL" target="_blank"> {{ photoURL }} </a></p>
+    </div>
 
 </template>
 
 <style>
+.livenessDetails{
+  border-style: groove;
+}
+
+h2{
+  display: block;
+  margin-top: 10px;
+}
 </style>
