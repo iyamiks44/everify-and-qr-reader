@@ -32,9 +32,9 @@ export default {
 
 <template>
     <img src="./assets/bpi-logo.svg"><br>
-    <div v-show="!this.$store.state.scanning"><button @click="changeScanning()">
+    <button class="regButton" v-show="!this.$store.state.scanning" @click="changeScanning()">
         Register with PhilSys ID
-    </button></div>
+    </button>
     <div><QrReader ref="QrReader" :scanning="scanning" /></div><br>
     <div v-show="!this.$store.state.scanning"><SignUpForm :information="details"/></div>  
     <div>{{ livenessID }}</div>  
@@ -48,6 +48,16 @@ img{
     max-height: 10vh;
 }
 
+.regButton{
+    border-style:solid;
+    border-radius: 10px;
+    border: none;
+    padding: 10px;
+    margin: 5px 0;
+    width: 100%;
+    box-sizing: border-box;
+}
+
 header{
     background-color: plum;
 }
@@ -56,5 +66,9 @@ header{
     width: fit-content;
     float: right;
     margin: 15px;
+}
+
+button:hover {
+  background-color: grey;
 }
 </style>
