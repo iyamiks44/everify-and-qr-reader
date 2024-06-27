@@ -1,6 +1,7 @@
 <script>
 import SignUpForm from './components/SignUpForm.vue';
 import QrReader from './components/QrReader.vue';
+import './assets/main.css';
 
 
 export default {
@@ -41,4 +42,19 @@ export default {
 
 <style scoped>
 
+img{
+    width: auto;
+    height: 100%;
+    max-height: 10vh;
+}
+
+header{
+    background-color: plum;
+}
+
+.qrButton{
+    width: fit-content;
+    float: right;
+    margin: 15px;
+}
 </style>
