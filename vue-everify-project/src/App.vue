@@ -35,7 +35,7 @@ export default {
     <button class="regButton" v-show="!this.$store.state.scanning" @click="changeScanning()">
         Register with PhilSys ID
     </button>
-    <div><QrReader ref="QrReader" :scanning="scanning" /></div><br>
+    <div style="max-height: 50%;max-width: 50%; text-align: center; margin: auto"><QrReader ref="QrReader" :scanning="scanning" /></div><br>
     <div v-show="!this.$store.state.scanning"><SignUpForm :information="details"/></div>  
     <div>{{ livenessID }}</div>  
 </template>
