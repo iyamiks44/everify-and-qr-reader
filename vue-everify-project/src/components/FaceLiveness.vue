@@ -8,7 +8,6 @@ export default {
         }).then((data) => {
           const el = document.getElementById('response');
           el.textContent = JSON.stringify(data, undefined, 2);
-          this.$store.commit('storeLiveness', el.textContent)
         }).catch((err) => {
           console.log('error', err);
         });
