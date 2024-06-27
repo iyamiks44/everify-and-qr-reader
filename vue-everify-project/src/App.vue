@@ -46,6 +46,8 @@ img{
     width: auto;
     height: 100%;
     max-height: 10vh;
+    padding-left: 8px;
+    padding-top: 8px;
 }
 
 .regButton{
@@ -53,6 +55,8 @@ img{
     border-radius: 10px;
     border: none;
     padding: 10px;
+    padding-left: 8px;
+    padding-right: 8px;
     margin: 5px 0;
     width: 100%;
     box-sizing: border-box;
