@@ -69,6 +69,9 @@ header{
 }
 
 button:hover {
-  background-color: grey;
+  background-color:#e9e9e9;
+}
+button:active {
+  background-color: #c2c2c2
 }
 </style>

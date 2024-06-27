@@ -99,6 +99,20 @@
   </script>
   
   <style scoped>
-  /* Add your styles here */
+  button {
+    border-style:solid;
+    border-radius: 10px;
+    border: none;
+    padding: 10px;
+    margin: 5px 0;
+    width: 100%;
+    box-sizing: border-box;
+}
+button:hover {
+  background-color: #e9e9e9;
+}
+button:active {
+  background-color: #c2c2c2
+}
   </style>
   
