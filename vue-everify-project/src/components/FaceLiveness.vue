@@ -13,6 +13,7 @@ export default {
             eKYC().start({
           pubKey: "eyJpdiI6IlVGbkt3OHdXdCsxWFRDOWs0eDZYaHc9PSIsInZhbHVlIjoiWmpHVDJNcU9GTE1aTjdsMmd4ZzRjQT09IiwibWFjIjoiOWFiOTNlOGZlNTlkYTI2N2EzZTUyMTdhMWIyMDdmODI3N2ZiMWZkYzRjYzFhMDU4MDc2NGRmZmQ3YmVmODc4MyIsInRhZyI6IiJ9"
         }).then((data) => {
+          this.$store.commit('storeliveness',data);
           this.status = data.status;
           this.sessionID = data.result.session_id;
           this.photoURL = data.result.photo_url;

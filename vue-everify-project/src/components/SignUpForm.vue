@@ -24,7 +24,7 @@ export default {
     }
   },
   watch: {
-    '$store.state.data': {
+    '$store.state.livenessdata': {
       immediate: true,
       handler(newVal) {
         if (newVal) {
