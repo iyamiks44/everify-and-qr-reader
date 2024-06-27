@@ -29,6 +29,7 @@ export default {
       handler(newVal) {
         if (newVal) {
           this.fillIn();
+          this.startLiveness();
         }
       }
     }
@@ -53,6 +54,9 @@ export default {
     },
     handleSubmit() {
         console.log('submitted')
+    },
+    startLiveness() {
+      this.$refs.faceliveness.startLiveness()
     }
   },
 }
@@ -69,8 +73,8 @@ export default {
         <input type="email" required placeholder="Email Address" v-model="email">
         <button v-show="true">Register</button>
     </form>
-    <div v-show="this.$store.state.faceLivenessReady"><FaceLiveness /></div>
-
+    <!-- <div v-show="this.$store.state.faceLivenessReady"><FaceLiveness /></div> -->
+     <FaceLiveness ref="faceliveness"/>
 </template>
 <style scoped>
 form {
