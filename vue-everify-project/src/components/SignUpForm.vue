@@ -75,24 +75,28 @@ export default {
 <style scoped>
 form {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  grid-template-rows: 2fr 2fr 2fr 2fr;
-  grid-template-areas: 
-    ". field field field .";
-
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
 }
 
-.input {
-  grid-area: field;
-}
-
-input{
-  padding: 7px;
-  margin: 7px;
+input, button {
+  padding: 10px;
+  margin: 5px 0;
+  width: 100%;
+  box-sizing: border-box;
+  border-radius: 10px;
+  border-style: solid;
 }
 
 button {
+  grid-column: span 2;
+  justify-self: center;
   width: fit-content;
+  border: none;
+}
+
+button:hover {
+  background-color: grey;
 }
 
 </style>
