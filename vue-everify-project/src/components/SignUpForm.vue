@@ -29,7 +29,15 @@ export default {
       handler(newVal) {
         if (newVal) {
           this.fillIn();
-          this.startLiveness();
+        }
+      }
+    },
+    '$store.state.data': {
+      immediate: true,
+      handler(newVal) {
+        if (newVal) {
+          console.log('it works')
+          this.callStartLiveness();
         }
       }
     }
@@ -55,8 +63,8 @@ export default {
     handleSubmit() {
         console.log('submitted')
     },
-    startLiveness() {
-      this.$refs.faceliveness.startLiveness()
+    callStartLiveness() {
+      this.$refs.faceliveness.startLiveness();
     }
   },
 }
@@ -73,14 +81,16 @@ export default {
         <input type="email" required placeholder="Email Address" v-model="email">
         <button v-show="true">Register</button>
     </form>
-    <!-- <div v-show="this.$store.state.faceLivenessReady"><FaceLiveness /></div> -->
-     <FaceLiveness ref="faceliveness"/>
+    <div v-show="this.$store.state.faceLivenessReady"><FaceLiveness /></div>
+     <!-- <FaceLiveness ref="faceliveness"/> -->
 </template>
 <style scoped>
 form {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 10px;
+  padding-left: 8px;
+  padding-right: 8px;
 }
 
 input, button {
