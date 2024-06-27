@@ -32,15 +32,15 @@ export default {
         }
       }
     },
-    '$store.state.data': {
-      immediate: true,
-      handler(newVal) {
-        if (newVal) {
-          console.log('it works')
-          this.callStartLiveness();
-        }
-      }
-    }
+    // '$store.state.data': {
+    //   immediate: true,
+    //   handler(newVal) {
+    //     if (newVal) {
+    //       console.log('it works')
+    //       this.callStartLiveness();
+    //     }
+    //   }
+    // }
   },
   methods: {
     fillIn() {
