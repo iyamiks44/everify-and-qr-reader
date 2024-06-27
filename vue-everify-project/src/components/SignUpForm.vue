@@ -65,7 +65,7 @@ export default {
         <input type="text" required placeholder="Last Name" v-model="lastName">
         <input type="text" placeholder="Suffix (optional)" v-model="suffix">
         <input type="date" v-model="birthDate">
-        <input type="number" required placeholder="Mobile Number" v-model="cellNo">
+        <input type="text" required placeholder="Mobile Number" v-model="cellNo">
         <input type="email" required placeholder="Email Address" v-model="email">
         <button v-show="true">Register</button>
     </form>
