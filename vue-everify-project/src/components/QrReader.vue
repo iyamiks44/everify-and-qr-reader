@@ -2,9 +2,8 @@
     <div v-show="scanning">
       <button @click="stopVideo">Stop Scanning</button><br>
       <video ref="video" style="display: none"></video>
-      <canvas ref="canvas" width="300" height="300"></canvas><br>
+      <canvas ref="canvas" width="500" height="500"></canvas><br>
       Please Scan the QR code on your PhilSys ID
-      <!-- <div ref="result">what the sigma</div> -->
     </div>
   </template>
   
