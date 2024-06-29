@@ -1,6 +1,7 @@
 <script>
 import SignUpForm from './components/SignUpForm.vue';
 import QrReader from './components/QrReader.vue';
+import ProgressTracker from './components/progressTracker.vue'
 import './assets/main.css';
 
 
@@ -9,6 +10,7 @@ export default {
     components: {
         SignUpForm,
         QrReader,
+        ProgressTracker,
     },
     methods: {
         changeScanning() {
@@ -32,6 +34,7 @@ export default {
 
 <template>
     <img src="./assets/bpi-logo.svg"><br>
+    <ProgressTracker />
     <button class="regButton" v-show="!this.$store.state.scanning" @click="changeScanning()">
         Register with PhilSys ID
     </button>
