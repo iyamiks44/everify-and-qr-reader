@@ -1,15 +1,18 @@
 <template>
     <div class="flex-container">
-      <div class="step1">
+      <div class="step1" v-bind:style="{ backgroundColor: s1BgColor }">
         <img src="../assets/gg_check-o.png">
+        <span v-if="shouldFillBgColorS1"</span>
         <span>Step 1: Register with PhilSys ID</span>
       </div>
-      <div class="step2">
+      <div class="step2" v-bind:style="{ backgroundColor: s2BgColor }">
         <img src="../assets/gg_check-o.png">
+        <span v-if="shouldFillBgColorS2"</span>
         <span>Step 2: Complete the faceliveness check</span>
       </div>
-      <div class="step3">
+      <div class="step3" v-bind:style="{ backgroundColor: s3BgColor }">
         <img src="../assets/gg_check-o.png">
+        <span v-if="shouldFillBgColorS3"</span>
         <span>Step 3: Register</span>
       </div>
     </div>
@@ -18,6 +21,43 @@
   <script>
   export default {
     name: 'ProgressTracker',
+    data() {
+        return {
+            s1BgColor: '',
+            s2BgColor: '',
+            s3BgColor: '',
+        }
+        
+    },
+    computed: {
+        shouldFillBgColorS1() {
+            if (this.$store.state.data) {
+                this.fillBgColorS1();
+            }
+        },
+        shouldFillBgColorS2() {
+            if (this.$store.state.livenessData) {
+                this.fillBgColorS2();
+            }
+        },
+        shouldFillBgColorS3() {
+            if (this.$store.state.livenessData) {
+                this.fillBgColorS3();
+            }
+        }
+    },
+    methods: {
+        fillBgColorS1() {
+            this.s1BgColor = 'lightgreen'
+        },
+        fillBgColorS2() {
+            this.s2BgColor = 'lightgreen'
+        },
+        fillBgColorS3() {
+            this.s3BgColor = 'lightgreen'
+        }
+    }
+    
   }
   </script>
   
