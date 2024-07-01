@@ -86,11 +86,12 @@ export default {
 </template>
 <style scoped>
 form {
+  box-sizing: border-box;
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 10px;
-  padding-left: 8px;
-  padding-right: 8px;
+  /* grid-template-columns: 1fr 1fr; */
+  gap: 8px;
+  margin: auto;
+  width: 80%;
 }
 
 input, button {

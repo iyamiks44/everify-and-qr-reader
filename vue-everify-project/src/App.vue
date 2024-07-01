@@ -60,9 +60,12 @@ img{
     padding: 10px;
     padding-left: 8px;
     padding-right: 8px;
-    margin: 5px 0;
-    width: 100%;
+    margin: auto;
+    width: 80%;
     box-sizing: border-box;
+    display: block;
+    background-color: #B11116;
+    color: #F8f8f8
 }
 
 header{
@@ -76,9 +79,9 @@ header{
 }
 
 button:hover {
-  background-color:#e9e9e9;
+  background-color:#a11116;
 }
 button:active {
-  background-color: #c2c2c2
+  background-color: #E4BEBC
 }
 </style>
