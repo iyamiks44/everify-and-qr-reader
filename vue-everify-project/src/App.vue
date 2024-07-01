@@ -34,10 +34,11 @@ export default {
 
 <template>
     <img src="./assets/bpi-logo.svg"><br>
-    <ProgressTracker />
+    
     <button class="regButton" v-show="!this.$store.state.scanning" @click="changeScanning()">
         Register with PhilSys ID
     </button>
+    <ProgressTracker />
     <div style="max-height: 60%;max-width: 60%; text-align: center; margin: auto"><QrReader ref="QrReader" :scanning="scanning" /></div><br>
     <div v-show="!this.$store.state.scanning"><SignUpForm :information="details"/></div>  
     <div>{{ livenessID }}</div>  
@@ -51,13 +52,14 @@ img{
     max-height: 10vh;
     padding-left: 8px;
     padding-top: 8px;
+    margin-bottom: 16px;
 }
 
 .regButton{
     border-style:solid;
     border-radius: 10px;
     border: none;
-    padding: 10px;
+    padding: 13px;
     padding-left: 8px;
     padding-right: 8px;
     margin: auto;

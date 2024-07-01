@@ -108,13 +108,16 @@ button {
   justify-self: center;
   width: fit-content;
   border: none;
+  background-color: #B11116;
+  color: #E9E9E9;
+  padding: 11px;
 }
 
 button:hover {
-  background-color: #E9E9E9;
+  background-color: #A11116
 }
 button:active {
-  background-color: #c2c2c2
+  background-color: #e4bebc
 }
 
 </style>
