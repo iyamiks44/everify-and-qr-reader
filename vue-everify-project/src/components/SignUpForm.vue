@@ -51,7 +51,13 @@ export default {
         this.middleName = obj.subject.mName
         this.lastName = obj.subject.lName
         this.suffix = obj.subject.Suffix
-        this.birthDate = obj.subject.DOB
+        const dateString = obj.subject.DOB;
+      const date = new Date(dateString);
+      const formattedDate = date.getFullYear() + '-' +
+                            ("0" + (date.getMonth() + 1)).slice(-2) + '-' +
+                            ("0" + date.getDate()).slice(-2);
+      this.birthDate = formattedDate;
+        // this.birthDate = obj.subject.DOB
         // this.cellNo = obj.mobile_number
         // this.email = obj.email
         // this.faceLiveness = obj.faceLiveness
