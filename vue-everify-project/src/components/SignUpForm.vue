@@ -79,7 +79,7 @@ export default {
         <input type="date" v-model="birthDate">
         <input type="text" required placeholder="Mobile Number" v-model="cellNo">
         <input type="email" required placeholder="Email Address" v-model="email">
-        <button v-show="true">Register</button>
+        <button v-show="this.$store.state.data && this.$store.state.livenessData">Register</button>
     </form>
     <div v-show="this.$store.state.faceLivenessReady"><FaceLiveness /></div>
      <!-- <FaceLiveness ref="faceliveness"/> -->
@@ -88,7 +88,7 @@ export default {
 form {
   box-sizing: border-box;
   display: grid;
-  /* grid-template-columns: 1fr 1fr; */
+  grid-template-columns: 1fr 1fr;
   gap: 8px;
   margin: auto;
   width: 80%;
