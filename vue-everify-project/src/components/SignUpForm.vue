@@ -77,7 +77,7 @@ export default {
 </script>
 <template>
     <!-- <div v-if="this.$store.state.data ? fillIn():{}"></div>  -->
-    <form @submit.prevent="handleSubmit()">
+    <form @submit.prevent="handleSubmit()" v-show="this.$store.state.data && this.$store.state.livenessData">
         <input type="text" required placeholder="First Name" v-model="firstName">
         <input type="text" placeholder="Middle Name (optional)" v-model="middleName">
         <input type="text" required placeholder="Last Name" v-model="lastName">
@@ -87,7 +87,7 @@ export default {
         <input type="email" required placeholder="Email Address" v-model="email">
         <button v-show="this.$store.state.data && this.$store.state.livenessData">Register</button>
     </form>
-    <div v-show="this.$store.state.faceLivenessReady"><FaceLiveness /></div>
+    <div v-show="this.$store.state.data"><FaceLiveness /></div>
      <!-- <FaceLiveness ref="faceliveness"/> -->
 </template>
 <style scoped>
