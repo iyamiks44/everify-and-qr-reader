@@ -92,10 +92,9 @@ export default {
 </template>
 <style scoped>
 form {
-  box-sizing: border-box;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   margin: auto;
   width: 80%;
 }
