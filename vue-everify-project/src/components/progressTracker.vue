@@ -1,19 +1,19 @@
 <template>
     <div class="flex-container">
       <div class="step1" v-bind:style="{ backgroundColor: s1BgColor }">
-        <img src="../assets/gg_check-o.png">
+        <img src="../assets/gg_check-o.png" v-show="this.$store.state.data">
         <span v-if="shouldFillBgColorS1"</span>
         <span>Step 1: Register with PhilSys ID</span>
       </div>
       <div class="step2" v-bind:style="{ backgroundColor: s2BgColor }">
-        <img src="../assets/gg_check-o.png">
+        <img src="../assets/gg_check-o.png" v-show="this.$store.state.livenessData">
         <span v-if="shouldFillBgColorS2"</span>
         <span>Step 2: Complete the faceliveness check</span>
       </div>
       <div class="step3" v-bind:style="{ backgroundColor: s3BgColor }">
-        <img src="../assets/gg_check-o.png">
+        <img src="../assets/gg_check-o.png" v-show="this.$store.state.livenessData && this.$store.state.data">
         <span v-if="shouldFillBgColorS3"</span>
-        <span>Step 3: Register</span>
+        <span>Step 3: Check details and Register</span>
       </div>
     </div>
   </template>
