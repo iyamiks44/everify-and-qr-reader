@@ -1,10 +1,10 @@
 <template>
-    <div v-show="scanning">
+    <Transition><div v-show="scanning">
       <button @click="stopVideo">Stop Scanning</button><br>
       <video ref="video" style="display: none"></video>
       <canvas ref="canvas" width="500" height="500"></canvas><br>
       Please Scan the QR code on your PhilSys ID
-    </div>
+    </div></Transition>
   </template>
   
   <script>
@@ -112,6 +112,15 @@ button:hover {
 }
 button:active {
   background-color: #c2c2c2
+}
+.v-enter-active,
+.v-leave-active {
+  transition: opacity 0.5s ease;
+}
+
+.v-enter-from,
+.v-leave-to {
+  opacity: 0;
 }
   </style>
   

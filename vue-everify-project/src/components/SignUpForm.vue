@@ -87,7 +87,7 @@ export default {
         <input type="email" required placeholder="Email Address" v-model="email">
         <button v-show="this.$store.state.data && this.$store.state.livenessData">Register</button>
     </form>
-    <div v-show="this.$store.state.data"><FaceLiveness /></div>
+    <Transition><div v-show="this.$store.state.data"><FaceLiveness /></div></Transition>
      <!-- <FaceLiveness ref="faceliveness"/> -->
 </template>
 <style scoped>
@@ -124,6 +124,15 @@ button:hover {
 }
 button:active {
   background-color: #e4bebc
+}
+.v-enter-active,
+.v-leave-active {
+  transition: opacity 0.5s ease;
+}
+
+.v-enter-from,
+.v-leave-to {
+  opacity: 0;
 }
 
 </style>

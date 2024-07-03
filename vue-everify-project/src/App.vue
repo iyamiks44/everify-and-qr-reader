@@ -35,9 +35,9 @@ export default {
 <template>
     <img src="./assets/bpi-logo.svg"><br>
     
-    <button class="regButton" v-show="!this.$store.state.scanning" @click="changeScanning()">
+    <Transition><button class="regButton" v-show="!this.$store.state.scanning" @click="changeScanning()">
         Register with PhilSys ID
-    </button>
+    </button></Transition>
     <ProgressTracker />
     <div style="max-height: 60%;max-width: 60%; text-align: center; margin: auto"><QrReader ref="QrReader" :scanning="scanning" /></div><br>
     <div v-show="!this.$store.state.scanning"><SignUpForm :information="details"/></div>  
@@ -85,5 +85,14 @@ button:hover {
 }
 button:active {
   background-color: #E4BEBC
+}
+.v-enter-active,
+.v-leave-active {
+  transition: opacity 0.5s ease;
+}
+
+.v-enter-from,
+.v-leave-to {
+  opacity: 0;
 }
 </style>
