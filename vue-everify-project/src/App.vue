@@ -33,9 +33,10 @@ export default {
 </script>
 
 <template>
+    <link href='https://fonts.googleapis.com/css?family=Open Sans' rel='stylesheet'>
     <img src="./assets/bpi-logo.svg"><br>
     
-    <Transition><button class="regButton" v-show="!this.$store.state.scanning" @click="changeScanning()">
+    <Transition><button class="regButton bold" v-show="!this.$store.state.scanning" @click="changeScanning()">
         Register with PhilSys ID
     </button></Transition>
     <ProgressTracker />
@@ -59,15 +60,18 @@ img{
     border-style:solid;
     border-radius: 10px;
     border: none;
-    padding: 13px;
+    padding: 12px;
     padding-left: 8px;
     padding-right: 8px;
     margin: auto;
-    width: 80%;
+    width: 70%;
     box-sizing: border-box;
     display: block;
     background-color: #B11116;
-    color: #F8f8f8
+    color: #F8f8f8;
+    font-family: 'Open Sans';
+    font-size: 14px;
+    letter-spacing: .1rem;
 }
 
 header{

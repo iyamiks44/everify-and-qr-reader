@@ -1,19 +1,20 @@
 <template>
+    <link href='https://fonts.googleapis.com/css?family=Open Sans' rel='stylesheet'>
     <div class="flex-container">
       <div class="step1" v-bind:style="{ backgroundColor: s1BgColor }">
-        <img src="../assets/gg_check-o.png" v-show="this.$store.state.data">
-        <span v-if="shouldFillBgColorS1"</span>
-        <span>Step 1: Register with PhilSys ID</span>
+        <img src="../assets/gg_check-o.png">
+        <span v-if="shouldFillBgColorS1"></span>
+        <p class="bold">Step 1: QR Verification</p>
       </div>
       <div class="step2" v-bind:style="{ backgroundColor: s2BgColor }">
-        <img src="../assets/gg_check-o.png" v-show="this.$store.state.livenessData">
-        <span v-if="shouldFillBgColorS2"</span>
-        <span>Step 2: Complete the faceliveness check</span>
+        <img src="../assets/gg_check-o.png">
+        <span v-if="shouldFillBgColorS2"></span>
+        <p class="bold">Step 2: Face Liveness Check</p>
       </div>
       <div class="step3" v-bind:style="{ backgroundColor: s3BgColor }">
-        <img src="../assets/gg_check-o.png" v-show="this.$store.state.livenessData && this.$store.state.data">
-        <span v-if="shouldFillBgColorS3"</span>
-        <span>Step 3: Check details and Register</span>
+        <img src="../assets/gg_check-o.png">
+        <span v-if="shouldFillBgColorS3"></span>
+        <p class="bold">Step 3: Review Details</p>
       </div>
     </div>
   </template>
@@ -64,6 +65,7 @@
   <style scoped>
   img {
     max-width: 20px;
+    margin: 8px;
   }
   
   .flex-container {
@@ -72,7 +74,11 @@
     justify-content: center;
     align-items: center;
     gap: 20px;
-    padding: 10px
+    padding: 16px;
+    width: 80%;
+    padding-left: 8px;
+    padding-right: 8px;
+    margin: auto;
   }
   
   .step1 {
@@ -83,6 +89,8 @@
     background-color: none;
     padding: 10px;
     border-radius: 10px;
+    font-family: 'Open Sans';
+    font-size: 16px;
     /* background: linear-gradient(to right, lightgreen 50%, transparent 50%); */
   }
   .step2 {
@@ -93,6 +101,8 @@
     background-color: none;
     padding: 10px;
     border-radius: 10px;
+    font-family: 'Open Sans';
+    font-size: 16px;
     /* background: linear-gradient(to right, lightgreen 50%, transparent 50%); */
   }
   .step3 {
@@ -103,6 +113,8 @@
     background-color: none;
     padding: 10px;
     border-radius: 10px;
+    font-family: 'Open Sans';
+    font-size: 16px;
     /* background: linear-gradient(to right, lightgreen 50%, transparent 50%); */
   }
   </style>
