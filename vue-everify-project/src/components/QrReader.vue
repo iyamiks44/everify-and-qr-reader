@@ -31,7 +31,7 @@
       startVideo() {
         const video = this.$refs.video;
         const canvas = this.$refs.canvas;
-        const context = canvas.getContext('2d');
+        const context = canvas.getContext('2d', { willReadFrequently: true });
   
         navigator.mediaDevices.getUserMedia({ video: { facingMode: 'environment' } })
           .then(stream => {
@@ -56,7 +56,7 @@
   
         const video = this.$refs.video;
         const canvas = this.$refs.canvas;
-        const context = canvas.getContext('2d');
+        const context = canvas.getContext('2d', { willReadFrequently: true });
   
         if (video.readyState === video.HAVE_ENOUGH_DATA) {
           canvas.width = video.videoWidth;
