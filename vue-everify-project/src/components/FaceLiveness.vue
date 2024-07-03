@@ -15,8 +15,12 @@ export default {
         }).then((data) => {
           this.$store.commit('storeLiveness',data);
           this.status = data.status;
+          console.log(data.status);
           this.sessionID = data.result.session_id;
+          console.log('Session ID:', data.result.session_id);
           this.photoURL = data.result.photo_url;
+          console.log('Photo URL:', data.result.photo_url);
+          
         }).catch((err) => {
           console.log('error', err);
         });
@@ -25,7 +29,7 @@ export default {
         },
         mounted() {
             const script = document.createElement('script');
-        script.src = '/src/components/liveness-everify';
+        script.src = '/src/components/liveness-everify.js';
         script.onload = () => {
         console.log('External script loaded.');
     };
