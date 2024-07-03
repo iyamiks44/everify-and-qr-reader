@@ -40,7 +40,7 @@ export default {
     </button></Transition>
     <ProgressTracker />
     <div style="max-height: 60%;max-width: 60%; text-align: center; margin: auto"><QrReader ref="QrReader" :scanning="scanning" /></div><br>
-    <div v-show="!this.$store.state.scanning"><SignUpForm :information="details"/></div>  
+    <Transition><div v-show="!this.$store.state.scanning"><SignUpForm :information="details"/></div> </Transition>
     <div>{{ livenessID }}</div>  
 </template>
 
