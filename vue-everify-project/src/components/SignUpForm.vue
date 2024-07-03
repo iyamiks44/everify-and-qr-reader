@@ -77,6 +77,7 @@ export default {
 </script>
 <template>
     <!-- <div v-if="this.$store.state.data ? fillIn():{}"></div>  -->
+  <div class="container">
     <form @submit.prevent="handleSubmit()" v-show="this.$store.state.data && this.$store.state.livenessData">
         <input type="text" required placeholder="First Name" v-model="firstName">
         <input type="text" placeholder="Middle Name (optional)" v-model="middleName">
@@ -89,8 +90,20 @@ export default {
     </form>
     <div v-show="this.$store.state.data"><FaceLiveness /></div>
      <!-- <FaceLiveness ref="faceliveness"/> -->
+  </div>
 </template>
 <style scoped>
+
+.container {
+  border: 2px solid #B11116;
+  border-radius: 15px;
+  padding: 20px;
+  margin: 20px auto;
+  max-width: 800px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+}
+
 form {
   display: flex;
   flex-direction: column;
