@@ -88,6 +88,7 @@ img{
     padding-left: 8px;
     padding-top: 8px;
     margin-bottom: 16px;
+    align-self: start;
 }
 
 .regButton{
@@ -121,6 +122,7 @@ header{
 button:hover {
   background-color:#a11116;
 }
+
 button:active {
   background-color: #E4BEBC
 }
