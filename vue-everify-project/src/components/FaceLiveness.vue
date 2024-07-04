@@ -50,13 +50,17 @@ export default {
     </button>
   </div>
   <div v-if="status" id="livenessDetails">
-      <p id="copyID"> <h2>Session ID: </h2> {{ sessionID }}</p>
-      <p id="copyURL"><h2> Photo URL: </h2><a :href="photoURL" target="_blank"> {{ photoURL }} </a></p>
+      <p id="copyID"><span>Session ID:</span> {{ sessionID }}</p>
+      <p id="copyURL"><span> Photo URL: </span><a :href="photoURL" target="_blank">Click to open Photo URL in a new tab</a></p>
   </div>
 
 </template>
 
 <style>
+p {
+  font-weight: bold;
+  padding-left: 15%;
+}
 .livenessDetails{
   border-style: groove;
   font-family: "Open Sans";

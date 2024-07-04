@@ -122,7 +122,6 @@ button {
   padding: 11px;
 }
 .info {
-  margin-top: 16px;
   padding-left:15%;
   font-weight: bold;
 }
