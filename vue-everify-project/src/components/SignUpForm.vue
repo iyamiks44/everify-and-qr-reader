@@ -97,7 +97,7 @@ form {
   grid-template-columns: 1fr 1fr;
   gap: 8px;
   margin: auto;
-  width: 80%;
+  width: 70%;
 }
 
 input, button {

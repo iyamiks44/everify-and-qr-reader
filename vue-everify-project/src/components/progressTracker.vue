@@ -8,14 +8,14 @@
         <p class="bold" :style="{ color: s1BgColor }">Step 1: QR Verification</p>
       </div>
       <div class="step2">
-        <img scr="../assets/check-green.svg" v-if="isValidS2">
-        <img src="../assets/check.svg">
+        <img src="../assets/check-green.svg" v-if="isValidS2">
+        <img src="../assets/check.svg" v-else>
         <span v-if="shouldFillBgColorS2"></span>
         <p class="bold" :style="{ color: s2BgColor }">Step 2: Face Liveness Check</p>
       </div>
       <div class="step3">
         <img src="../assets/check-green.svg" v-if="isValidS3">
-        <img src="../assets/check.svg">
+        <img src="../assets/check.svg" v-else>
         <span v-if="shouldFillBgColorS3"></span>
         <p class="bold" :style="{ color: s3BgColor }">Step 3: Review Details</p>
       </div>
