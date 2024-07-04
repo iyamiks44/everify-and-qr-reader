@@ -32,12 +32,9 @@ export default {
                 this.popup = !this.popup;
             }, 2000);
         },
-            
-        
     },
     data() {
         return {
-            // scanning: false,
             details: '',
             scanning: this.$store.state.scanning ,
             livenessID: this.$store.state.livenessData,
@@ -45,11 +42,6 @@ export default {
 
         }
     },
-//     computed: {
-//         combinedData() {
-//         return this.$store.state.data || this.$store.state.livenessData;
-//     }
-// }, Tried implementing a cleaner fix for two watchers, but didnt work
     watch: {
     '$store.state.data': {
       immediate: true,
@@ -82,7 +74,6 @@ export default {
     <ProgressTracker />
     <div style="max-height: 60%;max-width: 60%; text-align: center; margin: auto"><QrReader ref="QrReader" :scanning="scanning" /></div><br>
     <Transition><div v-show="!this.$store.state.scanning"><SignUpForm :information="details"/></div> </Transition>
-    <!-- <div>{{ livenessID }}</div>  -->
     <Transition><SuccessPopup v-if="popup"/></Transition>
 </template>
 

@@ -44,11 +44,11 @@ export default {
 </script>
 
 <template>
-  <div class="scanPrompt bold"  v-show="!this.$store.state.livenessData"><h3> Please start Face Liveness to continue:</h3>
+  <Transition><div class="scanPrompt bold"  v-show="!this.$store.state.livenessData"><h3> Please start Face Liveness to continue:</h3>
     <button @click="startLiveness()" class="bold">
         Start Face Liveness
     </button>
-  </div>
+  </div></Transition>
   <div v-if="status" id="livenessDetails">
       <p id="copyID"><span>Session ID:</span> {{ sessionID }}</p>
       <p id="copyURL"><span> Photo URL: </span><a :href="photoURL" target="_blank">Click to open Photo URL in a new tab</a></p>
@@ -99,6 +99,15 @@ button:active{
 
 .bold{
   font-weight: bold;
+}
+.v-enter-active,
+.v-leave-active {
+  transition: opacity 0.5s ease;
+}
+
+.v-enter-from,
+.v-leave-to {
+  opacity: 0;
 }
 
 </style>

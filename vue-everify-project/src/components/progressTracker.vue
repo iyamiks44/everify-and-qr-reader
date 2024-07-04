@@ -75,7 +75,6 @@
     font-size: 16px;
     box-sizing: border-box;
     max-width: 33.33%;
-    /* background: linear-gradient(to right, lightgreen 50%, transparent 50%); */
   }
   .step2 {
     display: flex;
@@ -89,7 +88,6 @@
     font-size: 16px;
     box-sizing: border-box;
     max-width: 33.33%;
-    /* background: linear-gradient(to right, lightgreen 50%, transparent 50%); */
   }
   .step3 {
     display: flex;
@@ -103,7 +101,6 @@
     font-size: 16px;
     box-sizing: border-box;
     max-width: 33.33%;
-    /* background: linear-gradient(to right, lightgreen 50%, transparent 50%); */
   }
   .step.valid p {
     color: #4BCA80;
