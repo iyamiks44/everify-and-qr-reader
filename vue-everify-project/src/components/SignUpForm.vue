@@ -88,9 +88,10 @@ export default {
         <input type="email" required placeholder="Email Address" v-model="email">
         <button v-show="this.$store.state.data && this.$store.state.livenessData">Register</button>
     </form>
-    <Transition><div v-show="this.$store.state.data"><FaceLiveness /></div></Transition>
+    
      <!-- <FaceLiveness ref="faceliveness"/> -->
   </div>
+  <Transition><div v-show="this.$store.state.data"><FaceLiveness /></div></Transition>
 </template>
 <style scoped>
 
