@@ -2,18 +2,18 @@
     <link href='https://fonts.googleapis.com/css?family=Open Sans' rel='stylesheet'>
     <div class="flex-container">
       <div class="step step1" :class="{ 'valid': isValidS1 }">
-        <img src="../assets/check-green.svg" v-if="isValidS1">
-        <img src="../assets/check.svg" v-else>
+        <img src="../assets/green_check.svg" v-if="isValidS1">
+        <img src="../assets/black_check.svg" v-else>
         <p class="bold">Step 1: QR Verification</p>
       </div>
       <div class="step step2" :class="{ 'valid': isValidS2 }">
-        <img src="../assets/check-green.svg" v-if="isValidS2">
-        <img src="../assets/check.svg" v-else>
+        <img src="../assets/green_check.svg" v-if="isValidS2">
+        <img src="../assets/black_check.svg" v-else>
         <p class="bold">Step 2: Face Liveness Check</p>
       </div>
       <div class="step step3" :class="{ 'valid': isValidS3 }">
-        <img src="../assets/check-green.svg" v-if="isValidS3">
-        <img src="../assets/check.svg" v-else>
+        <img src="../assets/green_check.svg" v-if="isValidS3">
+        <img src="../assets/black_check.svg" v-else>
         <p class="bold">Step 3: Review Details</p>
       </div>
     </div>
