@@ -19,6 +19,13 @@ export default {
             this.$store.commit('changeScanning',true);
             this.$refs.QrReader.scanning = !this.$refs.QrReader.scanning;
             // console.log('changed')
+        },
+        showPopup() {
+            this.popup = !this.popup;
+
+            setTimeout(() => {
+                this.popup = !this.popup;
+            }, 2000);
         }
     },
     data() {
@@ -27,9 +34,33 @@ export default {
             details: "",
             scanning: this.$store.state.scanning ,
             livenessID: this.$store.state.livenessData,
+            popup: false,
 
         }
     },
+//     computed: {
+//         combinedData() {
+//         return this.$store.state.data || this.$store.state.livenessData;
+//     }
+// }, Tried implementing a cleaner fix for two watchers, but didnt work
+    watch: {
+    '$store.state.data': {
+      immediate: true,
+      handler(newVal) {
+        if (newVal) {
+          this.showPopup();
+        }
+      }
+    },
+    '$store.state.livenessData' : {
+        immediate: true,
+        handler(newVal) {
+            if (newVal) {
+                this.showPopup();
+            }
+        }
+    }
+  },
 }
 
 </script>
@@ -45,7 +76,7 @@ export default {
     <div style="max-height: 60%;max-width: 60%; text-align: center; margin: auto"><QrReader ref="QrReader" :scanning="scanning" /></div><br>
     <Transition><div v-show="!this.$store.state.scanning"><SignUpForm :information="details"/></div> </Transition>
     <div>{{ livenessID }}</div> 
-    <SuccessPopup v-if="false"/> 
+    <Transition><SuccessPopup v-if="popup"/></Transition>
 </template>
 
 <style scoped>

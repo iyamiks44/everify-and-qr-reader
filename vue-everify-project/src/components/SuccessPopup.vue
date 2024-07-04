@@ -2,6 +2,7 @@
     <div class="outer">
         <div class="inner">
             <slot>
+                <img src="../assets/Eo_circle_green_checkmark.svg.png"><br>
                 Success!
             </slot>
         </div>
@@ -23,7 +24,10 @@ export default {
 
 </script>
 
-<style>
+<style scoped>
+img {
+    width: 50px;
+}
 .outer {
     position: fixed;
     top: 0;
@@ -39,6 +43,6 @@ export default {
 }
 .inner {
     background: #fff;
-    padding: 20px
+    padding: 20px;
 }
 </style>
