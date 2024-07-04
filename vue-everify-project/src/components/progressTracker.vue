@@ -1,20 +1,23 @@
 <template>
     <link href='https://fonts.googleapis.com/css?family=Open Sans' rel='stylesheet'>
-    <div class="flex-container">
-      <div class="step1" v-bind:style="{ backgroundColor: s1BgColor }">
-        <img src="../assets/gg_check-o.png">
+    <div class="flex-container">{{ shouldFillBgColorS1 }}
+      <div class="step1">
+        <img src="../assets/check-green.svg" v-if="isValidS1">
+        <img src="../assets/check.svg" v-else>
         <span v-if="shouldFillBgColorS1"></span>
-        <p class="bold">Step 1: QR Verification</p>
+        <p class="bold" :style="{ color: s1BgColor }">Step 1: QR Verification</p>
       </div>
-      <div class="step2" v-bind:style="{ backgroundColor: s2BgColor }">
-        <img src="../assets/gg_check-o.png">
+      <div class="step2">
+        <img scr="../assets/check-green.svg" v-if="isValidS2">
+        <img src="../assets/check.svg">
         <span v-if="shouldFillBgColorS2"></span>
-        <p class="bold">Step 2: Face Liveness Check</p>
+        <p class="bold" :style="{ color: s2BgColor }">Step 2: Face Liveness Check</p>
       </div>
-      <div class="step3" v-bind:style="{ backgroundColor: s3BgColor }">
-        <img src="../assets/gg_check-o.png">
+      <div class="step3">
+        <img src="../assets/check-green.svg" v-if="isValidS3">
+        <img src="../assets/check.svg">
         <span v-if="shouldFillBgColorS3"></span>
-        <p class="bold">Step 3: Review Details</p>
+        <p class="bold" :style="{ color: s3BgColor }">Step 3: Review Details</p>
       </div>
     </div>
   </template>
@@ -27,6 +30,9 @@
             s1BgColor: '',
             s2BgColor: '',
             s3BgColor: '',
+            isValidS1: false,
+            isValidS2: false,
+            isValidS3: false
         }
         
     },
@@ -49,13 +55,16 @@
     },
     methods: {
         fillBgColorS1() {
-            this.s1BgColor = 'lightgreen'
+            this.s1BgColor = '#4BCA80'
+            this.isValidS1 = true
         },
         fillBgColorS2() {
-            this.s2BgColor = 'lightgreen'
+            this.s2BgColor = '#4BCA80'
+            this.isValidS2 = true
         },
         fillBgColorS3() {
-            this.s3BgColor = 'lightgreen'
+            this.s3BgColor = '#4BCA80'
+            this.isValidS3 = true
         }
     }
     
@@ -75,10 +84,11 @@
     align-items: center;
     gap: 20px;
     padding: 16px;
-    width: 80%;
+    width: 70%;
     padding-left: 8px;
     padding-right: 8px;
     margin: auto;
+
   }
   
   .step1 {
@@ -91,6 +101,8 @@
     border-radius: 10px;
     font-family: 'Open Sans';
     font-size: 16px;
+    box-sizing: border-box;
+    max-width: 33.33%;
     /* background: linear-gradient(to right, lightgreen 50%, transparent 50%); */
   }
   .step2 {
@@ -103,6 +115,8 @@
     border-radius: 10px;
     font-family: 'Open Sans';
     font-size: 16px;
+    box-sizing: border-box;
+    max-width: 33.33%;
     /* background: linear-gradient(to right, lightgreen 50%, transparent 50%); */
   }
   .step3 {
@@ -115,6 +129,8 @@
     border-radius: 10px;
     font-family: 'Open Sans';
     font-size: 16px;
+    box-sizing: border-box;
+    max-width: 33.33%;
     /* background: linear-gradient(to right, lightgreen 50%, transparent 50%); */
   }
   </style>
