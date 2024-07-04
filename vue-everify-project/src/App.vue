@@ -82,9 +82,8 @@ export default {
     <ProgressTracker />
     <div style="max-height: 60%;max-width: 60%; text-align: center; margin: auto"><QrReader ref="QrReader" :scanning="scanning" /></div><br>
     <Transition><div v-show="!this.$store.state.scanning"><SignUpForm :information="details"/></div> </Transition>
-    <div>{{ livenessID }}</div> 
+    <!-- <div>{{ livenessID }}</div>  -->
     <Transition><SuccessPopup v-if="popup"/></Transition>
-    <div v-show="this.$store.state.data">{{details}}</div>
 </template>
 
 <style scoped>
