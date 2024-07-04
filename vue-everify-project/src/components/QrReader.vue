@@ -4,7 +4,7 @@
       <video ref="video" style="display: none"></video>
       <canvas ref="canvas" width="500" height="500"></canvas><br>
       <p class="scanPrompt">Please Scan the QR code on your PhilSys ID</p>
-    </div>
+    </div></Transition>
   </template>
   
   <script>
