@@ -3,8 +3,8 @@
       <button @click="stopVideo">Stop Scanning</button><br>
       <video ref="video" style="display: none"></video>
       <canvas ref="canvas" width="500" height="500"></canvas><br>
-      Please Scan the QR code on your PhilSys ID
-    </div></Transition>
+      <p class="scanPrompt">Please Scan the QR code on your PhilSys ID</p>
+    </div>
   </template>
   
   <script>
@@ -122,5 +122,8 @@ button:active {
 .v-leave-to {
   opacity: 0;
 }
+.scanPrompt{
+    font-family: "Open Sans";   
+  }
   </style>
   
