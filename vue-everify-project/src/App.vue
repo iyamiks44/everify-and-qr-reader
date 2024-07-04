@@ -17,6 +17,12 @@ export default {
             this.$store.commit('changeScanning',true);
             this.$refs.QrReader.scanning = !this.$refs.QrReader.scanning;
             // console.log('changed')
+            if(this.$store.state.data != '') {
+                this.$store.commit('clearData', true)
+            }
+            if(this.$store.state.livenessData != '') {
+                this.$store.commit('clearLivenessData', true)
+            }
         }
     },
     data() {
@@ -27,7 +33,7 @@ export default {
             livenessID: this.$store.state.livenessData,
 
         }
-    },
+    }
 }
 
 </script>
@@ -40,7 +46,9 @@ export default {
         Register with PhilSys ID
     </button>
     <ProgressTracker />
-    <div style="max-height: 60%;max-width: 60%; text-align: center; margin: auto"><QrReader ref="QrReader" :scanning="scanning" /></div><br>
+    <div style="max-height: 60%;max-width: 60%; text-align: center; margin: auto">
+        <QrReader ref="QrReader" :scanning="scanning" />
+    </div><br>
     <div v-show="!this.$store.state.scanning"><SignUpForm :information="details"/></div>  
     <div>{{ livenessID }}</div>  
 </template>

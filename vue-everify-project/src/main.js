@@ -27,6 +27,12 @@ const store = createStore({
         },
         changeFaceLivenessReady(state, payload) {
             state.faceLivenessReady = payload
+        },
+        clearData(state, payload) {
+            state.data = ''
+        },
+        clearLivenessData(state, payload) {
+            state.livenessData = ''
         }
     }
 })
