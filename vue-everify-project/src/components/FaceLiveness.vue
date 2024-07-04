@@ -46,21 +46,43 @@ export default {
   <div v-show="!this.$store.state.livenessData"><h3><b> Please start Face Liveness to continue:</b></h3>
     <button @click="startLiveness()">
         Start Face Liveness
-    </button></div>
-    <div v-if="status" id="livenessDetails">
+    </button>
+  </div>
+  <div v-if="status" id="livenessDetails">
       <p id="copyID"> <h2>Session ID: </h2> {{ sessionID }}</p>
       <p id="copyURL"><h2> Photo URL: </h2><a :href="photoURL" target="_blank"> {{ photoURL }} </a></p>
-    </div>
+  </div>
 
 </template>
 
 <style>
 .livenessDetails{
   border-style: groove;
+  font-family: "Open Sans";
 }
 
 h2{
   display: block;
   margin-top: 10px;
 }
+
+button {
+  border-style: solid;
+  border-radius: 10px;
+  border: none;
+  padding: 10px;
+  margin: 5px 0;
+  width: 100%;
+  box-sizing: border-box;
+  font-family: "Open Sans";
+}
+
+button:hover{
+  background-color: #e9e9e9;
+}
+
+button:active{
+  background-color: #c2c2c2;
+}
+
 </style>

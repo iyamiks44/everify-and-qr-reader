@@ -113,7 +113,7 @@
   }
 
   button:active {
-    background-color: #c2c2c2
+    background-color: #c2c2c2;
   }
 
   .scanPrompt{
