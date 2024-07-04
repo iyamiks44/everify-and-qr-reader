@@ -100,7 +100,7 @@ form {
   flex-direction: column;
   align-items: center;
   margin: auto;
-  width: 80%;
+  width: 70%;
 }
 
 input, button {

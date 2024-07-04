@@ -1,23 +1,20 @@
 <template>
     <link href='https://fonts.googleapis.com/css?family=Open Sans' rel='stylesheet'>
-    <div class="flex-container">{{ shouldFillBgColorS1 }}
-      <div class="step1">
-        <img src="../assets/green_check.svg" v-if="isValidS1">
-        <img src="../assets/black_check.svg" v-else>
-        <span v-if="shouldFillBgColorS1"></span>
-        <p class="bold" :style="{ color: s1BgColor }">Step 1: QR Verification</p>
+    <div class="flex-container">
+      <div class="step step1" :class="{ 'valid': isValidS1 }">
+        <img src="../assets/check-green.svg" v-if="isValidS1">
+        <img src="../assets/check.svg" v-else>
+        <p class="bold">Step 1: QR Verification</p>
       </div>
-      <div class="step2">
-        <img src="../assets/green_check.svg" v-if="isValidS2">
-        <img src="../assets/black_check.svg" v-else>
-        <span v-if="shouldFillBgColorS2"></span>
-        <p class="bold" :style="{ color: s2BgColor }">Step 2: Face Liveness Check</p>
+      <div class="step step2" :class="{ 'valid': isValidS2 }">
+        <img src="../assets/check-green.svg" v-if="isValidS2">
+        <img src="../assets/check.svg" v-else>
+        <p class="bold">Step 2: Face Liveness Check</p>
       </div>
-      <div class="step3">
-        <img src="../assets/green_check.svg" v-if="isValidS3">
-        <img src="../assets/black_check.svg" v-else>
-        <span v-if="shouldFillBgColorS3"></span>
-        <p class="bold" :style="{ color: s3BgColor }">Step 3: Review Details</p>
+      <div class="step step3" :class="{ 'valid': isValidS3 }">
+        <img src="../assets/check-green.svg" v-if="isValidS3">
+        <img src="../assets/check.svg" v-else>
+        <p class="bold">Step 3: Review Details</p>
       </div>
     </div>
   </template>
@@ -27,45 +24,20 @@
     name: 'ProgressTracker',
     data() {
         return {
-            s1BgColor: '',
-            s2BgColor: '',
-            s3BgColor: '',
             isValidS1: false,
             isValidS2: false,
             isValidS3: false
         }
         
     },
-    computed: {
-        shouldFillBgColorS1() {
-            if (this.$store.state.data) {
-                this.fillBgColorS1();
-            }
-        },
-        shouldFillBgColorS2() {
-            if (this.$store.state.livenessData) {
-                this.fillBgColorS2();
-            }
-        },
-        shouldFillBgColorS3() {
-            if (this.$store.state.livenessData) {
-                this.fillBgColorS3();
-            }
-        }
-    },
-    methods: {
-        fillBgColorS1() {
-            this.s1BgColor = '#4BCA80'
-            this.isValidS1 = true
-        },
-        fillBgColorS2() {
-            this.s2BgColor = '#4BCA80'
-            this.isValidS2 = true
-        },
-        fillBgColorS3() {
-            this.s3BgColor = '#4BCA80'
-            this.isValidS3 = true
-        }
+    watch: {
+      '$store.state.data': function() {
+        this.isValidS1 = (this.$store.state.data != '')
+      },
+      '$store.state.livenessData': function() {
+        this.isValidS2 = (this.$store.state.livenessData != '')
+        this.isValidS3 = (this.$store.state.livenessData != '')
+      }
     }
     
   }
@@ -132,6 +104,9 @@
     box-sizing: border-box;
     max-width: 33.33%;
     /* background: linear-gradient(to right, lightgreen 50%, transparent 50%); */
+  }
+  .step.valid p {
+    color: #4BCA80;
   }
   </style>
   

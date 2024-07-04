@@ -45,14 +45,14 @@ export default {
 
 <template>
   <div class="scanPrompt bold"  v-show="!this.$store.state.livenessData"><h3> Please start Face Liveness to continue:</h3>
-    <button @click="startLiveness()">
+    <button @click="startLiveness()" class="bold">
         Start Face Liveness
     </button>
   </div>
-  <!-- <div v-if="status" id="livenessDetails">
+  <div v-if="status" id="livenessDetails">
       <p id="copyID"> <h2>Session ID: </h2> {{ sessionID }}</p>
       <p id="copyURL"><h2> Photo URL: </h2><a :href="photoURL" target="_blank"> {{ photoURL }} </a></p>
-  </div> -->
+  </div>
 
 </template>
 
@@ -94,10 +94,6 @@ button:active{
 }
 
 .bold{
-  font-weight: bold;
-}
-
-h3{
   font-weight: bold;
 }
 

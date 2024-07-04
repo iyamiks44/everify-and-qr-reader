@@ -18,7 +18,12 @@ export default {
         changeScanning() {
             this.$store.commit('changeScanning',true);
             this.$refs.QrReader.scanning = !this.$refs.QrReader.scanning;
-            // console.log('changed')
+            if(this.$store.state.data != '') {
+                this.$store.commit('clearData', true)
+            }
+            if(this.$store.state.livenessData != '') {
+                this.$store.commit('clearLivenessData', true)
+            }
         },
         showPopup() {
             this.popup = !this.popup;
@@ -27,6 +32,8 @@ export default {
                 this.popup = !this.popup;
             }, 2000);
         },
+            
+        
     },
     data() {
         return {
