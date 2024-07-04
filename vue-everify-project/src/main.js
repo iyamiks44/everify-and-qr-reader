@@ -23,7 +23,6 @@ const store = createStore({
         },
         changeScanning(state, payload) {
             state.scanning = payload
-            // console.log('changed')
         },
         changeFaceLivenessReady(state, payload) {
             state.faceLivenessReady = payload
