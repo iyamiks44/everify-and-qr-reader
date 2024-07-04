@@ -2,6 +2,7 @@
 import SignUpForm from './components/SignUpForm.vue';
 import QrReader from './components/QrReader.vue';
 import ProgressTracker from './components/progressTracker.vue'
+import SuccessPopup from './components/SuccessPopup.vue';
 import './assets/main.css';
 
 
@@ -11,6 +12,7 @@ export default {
         SignUpForm,
         QrReader,
         ProgressTracker,
+        SuccessPopup,
     },
     methods: {
         changeScanning() {
@@ -42,7 +44,8 @@ export default {
     <ProgressTracker />
     <div style="max-height: 60%;max-width: 60%; text-align: center; margin: auto"><QrReader ref="QrReader" :scanning="scanning" /></div><br>
     <Transition><div v-show="!this.$store.state.scanning"><SignUpForm :information="details"/></div> </Transition>
-    <div>{{ livenessID }}</div>  
+    <div>{{ livenessID }}</div> 
+    <SuccessPopup v-if="false"/> 
 </template>
 
 <style scoped>
