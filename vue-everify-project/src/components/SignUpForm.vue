@@ -24,7 +24,7 @@ export default {
     }
   },
   watch: {
-    '$store.state.livenessData': {
+    '$store.state.data': {
       immediate: true,
       handler(newVal) {
         if (newVal) {
@@ -32,15 +32,6 @@ export default {
         }
       }
     },
-    // '$store.state.data': {
-    //   immediate: true,
-    //   handler(newVal) {
-    //     if (newVal) {
-    //       console.log('it works')
-    //       this.callStartLiveness();
-    //     }
-    //   }
-    // }
   },
   methods: {
     fillIn() {
@@ -57,14 +48,6 @@ export default {
                             ("0" + (date.getMonth() + 1)).slice(-2) + '-' +
                             ("0" + date.getDate()).slice(-2);
       this.birthDate = formattedDate;
-        // this.birthDate = obj.subject.DOB
-        // this.cellNo = obj.mobile_number
-        // this.email = obj.email
-        // this.faceLiveness = obj.faceLiveness
-        // console.log(this.information)
-        // const obj = JSON.parse(this.information);
-        // this.firstName = obj.firstName
-
     },
     handleSubmit() {
         console.log('submitted')
@@ -76,7 +59,6 @@ export default {
 }
 </script>
 <template>
-    <!-- <div v-if="this.$store.state.data ? fillIn():{}"></div>  -->
   <div class="container" v-show="this.$store.state.data && this.$store.state.livenessData">
     <form @submit.prevent="handleSubmit()">
         <input type="text" required placeholder="First Name" v-model="firstName">
@@ -88,10 +70,18 @@ export default {
         <input type="email" required placeholder="Email Address" v-model="email">
         <button v-show="this.$store.state.data && this.$store.state.livenessData">Register</button>
     </form>
-    
-     <!-- <FaceLiveness ref="faceliveness"/> -->
   </div>
-  <Transition><div v-show="this.$store.state.data"><FaceLiveness /></div></Transition>
+  <Transition>
+    <div v-show="this.$store.state.data">
+    <FaceLiveness />
+    <div class="info">
+      <span>First Name:</span> {{firstName}}<br>
+      <span>Middle Name:</span> {{middleName}}<br>
+      <span>Last Name:</span> {{lastName}}<br>
+      <span>Suffix:</span> {{suffix}}<br>
+      <span>Date of Birth:</span> {{birthDate}}
+    </div>
+    </div></Transition>
 </template>
 <style scoped>
 
@@ -130,6 +120,11 @@ button {
   background-color: #B11116;
   color: #E9E9E9;
   padding: 11px;
+}
+.info {
+  margin-top: 16px;
+  padding-left:15%;
+  font-weight: bold;
 }
 
 button:hover {

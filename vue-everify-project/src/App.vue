@@ -26,12 +26,12 @@ export default {
             setTimeout(() => {
                 this.popup = !this.popup;
             }, 2000);
-        }
+        },
     },
     data() {
         return {
             // scanning: false,
-            details: "",
+            details: '',
             scanning: this.$store.state.scanning ,
             livenessID: this.$store.state.livenessData,
             popup: false,
@@ -77,6 +77,7 @@ export default {
     <Transition><div v-show="!this.$store.state.scanning"><SignUpForm :information="details"/></div> </Transition>
     <div>{{ livenessID }}</div> 
     <Transition><SuccessPopup v-if="popup"/></Transition>
+    <div v-show="this.$store.state.data">{{details}}</div>
 </template>
 
 <style scoped>
