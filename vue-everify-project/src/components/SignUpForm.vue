@@ -77,8 +77,8 @@ export default {
 </script>
 <template>
     <!-- <div v-if="this.$store.state.data ? fillIn():{}"></div>  -->
-  <div class="container">
-    <form @submit.prevent="handleSubmit()" v-show="this.$store.state.data && this.$store.state.livenessData">
+  <div class="container" v-show="this.$store.state.data && this.$store.state.livenessData">
+    <form @submit.prevent="handleSubmit()">
         <input type="text" required placeholder="First Name" v-model="firstName">
         <input type="text" placeholder="Middle Name (optional)" v-model="middleName">
         <input type="text" required placeholder="Last Name" v-model="lastName">
